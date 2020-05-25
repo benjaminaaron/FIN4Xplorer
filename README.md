@@ -8,6 +8,8 @@ This repository was forked for the additions made during [#HackMoney 2020](https
   <img src="https://user-images.githubusercontent.com/5141792/82785492-f5709080-9e62-11ea-870d-73207a13bddb.png" width="500" >
 </p>
 
+:point_right: 4min **[submission video](https://youtu.be/_ytN_Qu1X9w)** :tv: 
+
 ## Description
 
 First we describe our existing dApp and then what we added to it during #HackMoney.
