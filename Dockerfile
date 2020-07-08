@@ -6,4 +6,5 @@ WORKDIR /usr/src/app
 # Install app dependencies
 COPY package*.json ./
 COPY wait-for-contracts.sh ./
+RUN chmod ugo+rwx wait-for-contracts.sh
 RUN npm install
