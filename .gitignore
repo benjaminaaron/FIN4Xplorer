@@ -6,6 +6,7 @@ src/build/
 
 src/config/faucet-url.json
 src/config/deployment-info.js
+src/config/verifier-info.js
 src/config/Fin4OracleHubAddress.js
 
 package-lock.json
