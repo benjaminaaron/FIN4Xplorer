@@ -42,7 +42,7 @@ const contractCall = (
 		.join(',');
 	let methodStr = contractName + '.' + methodName + '(' + paramStr + ')';
 
-	if (skipDryRun) {
+	if (skipDryRun || methodName === 'submitProof_CoinFlip') {
 		doCacheSend(props, contract, methodName, params, defaultAccount, methodStr, displayStr, callbacks);
 		return;
 	}
@@ -58,7 +58,7 @@ const contractCall = (
 					<div>
 						<b>Transaction test failed</b>
 						<br />
-						{'Reson: ' + errObj.reason}
+						{'Reason: ' + errObj.reason}
 					</div>,
 					{ position: toast.POSITION.TOP_RIGHT }
 				);
@@ -120,7 +120,9 @@ const readOnlyCall = (
 };
 
 const doCacheSend = (props, contract, methodName, params, defaultAccount, methodStr, displayStr, callbacks) => {
-	const stackId = contract.methods[methodName].cacheSend(...params, { from: defaultAccount });
+	let value = methodName === 'submitProof_CoinFlip' ? 4000000000000000 : undefined;
+	let gas = methodName === 'submitProof_CoinFlip' ? 6721975 : undefined;
+	const stackId = contract.methods[methodName].cacheSend(...params, { from: defaultAccount, value, gas });
 	doCallback(callbacks, 'transactionSent');
 
 	props.dispatch({
